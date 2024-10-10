@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -6,27 +6,42 @@ import { Component, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements AfterViewInit {
-  @ViewChild('cardList') cardList!: ElementRef;
+  @ViewChild('cardList') cardList!: ElementRef<HTMLDivElement>;
   currentIndex = 0;
+  cardWidth = 0;
+
+  constructor(private renderer: Renderer2) {}
 
   ngAfterViewInit() {
-    this.updateCarousel();
+    this.calculateCardWidth();
+    this.updateSlide();
   }
 
-  updateCarousel() {
-    const cardWidth = this.cardList.nativeElement.querySelector('.card-item').clientWidth;
-    this.cardList.nativeElement.style.transform = `translateX(-${this.currentIndex * cardWidth}px)`;
-  }
-
-  prevSlide() {
-    const totalCards = this.cardList.nativeElement.querySelectorAll('.card-item').length;
-    this.currentIndex = (this.currentIndex - 1 + totalCards) % totalCards;
-    this.updateCarousel();
+  calculateCardWidth() {
+    if (this.cardList && this.cardList.nativeElement.children.length > 0) {
+      this.cardWidth = (this.cardList.nativeElement.children[0] as HTMLElement).offsetWidth;
+    }
   }
 
   nextSlide() {
-    const totalCards = this.cardList.nativeElement.querySelectorAll('.card-item').length;
-    this.currentIndex = (this.currentIndex + 1) % totalCards;
-    this.updateCarousel();
+    this.currentIndex = (this.currentIndex + 1) % this.getCardsCount();
+    this.updateSlide();
+  }
+
+  prevSlide() {
+    this.currentIndex = (this.currentIndex - 1 + this.getCardsCount()) % this.getCardsCount();
+    this.updateSlide();
+  }
+
+  updateSlide() {
+    if (this.cardList && this.cardList.nativeElement) {
+      const offset = -this.currentIndex * this.cardWidth;
+      this.renderer.setStyle(this.cardList.nativeElement, 'transform', `translateX(${offset}px)`);
+      this.renderer.setStyle(this.cardList.nativeElement, 'transition', 'transform 0.5s ease-in-out');
+    }
+  }
+
+  getCardsCount(): number {
+    return this.cardList.nativeElement.children.length;
   }
 }

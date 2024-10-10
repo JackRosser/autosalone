@@ -4,6 +4,7 @@
 // MA NON HO MOLTO TEMPO, INOLTRE NON VORREI CREARE CONFLITTI STRANI CON ANGULAR
 // MAGARI SUGGERISCIMI PURE COME POTREI RENDERE LE COSE PIU ORDINATE
 // QUI HO SCRITTO TUTTO A MANO IL CAROSELLO PERCHE SONO POVERO E NON POSSO PERMETTERMI QUELLI GIA PRONTI DI TAILWIND
+// SONO ANDATO A PRENDERE UN VECCHIO CAROSELLO CHE AVEVO SCRITTO PER UN ESERCIZIO E HO USATO QUELLO
 
 main {
   position: relative;
@@ -40,6 +41,7 @@ main::before {
   backdrop-filter: blur(3px);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
 }
 
 .card-list .card-item .user-image {
@@ -76,14 +78,23 @@ main::before {
 }
 
 .slider-wrapper {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
+  overflow: hidden; // Nasconde le card che escono fuori dal container
+  width: 100%; // Occupa tutto lo spazio disponibile
+  display: flex;
+  justify-content: center; // Centra le card
+  align-items: center;
 }
 
 .card-list {
   display: flex;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  width: max-content; // Imposta la larghezza in base al contenuto
+}
+
+.card-item {
+  flex: 0 0 auto; // Impedisce che le card si comprimano o si espandano
+  width: 200px; // Imposta una larghezza fissa per le card
+  margin-right: 10px; // Aggiunge spazio tra le card
 }
 
 .carousel-button {
