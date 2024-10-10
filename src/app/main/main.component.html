@@ -1,18 +1,56 @@
-<main class="flex items-center content-center">
-  <div class="container">
-    <div class="slider-wrapper">
-      <div class="card-list">
-        <div class="card-item">
-          <img
-            src="https://picsum.photos/200"
-            alt="carimage"
-            class="user-image"
-          />
-          <h2 class="user-name">James Wilson</h2>
-          <p class="user-profession">Professione</p>
-          <button class="message-button">Message</button>
-        </div>
+<main class="relative overflow-hidden flex items-center justify-center">
+  <div class="slider-wrapper relative">
+    <button class="carousel-button left-0" (click)="prevSlide()">
+      &#10094;
+    </button>
+    <div #cardList class="card-list flex">
+      <!-- Inserisci le card come nel tuo template originale -->
+      <div class="card-item">
+        <img
+          src="https://picsum.photos/200"
+          alt="carimage"
+          class="user-image"
+        />
+        <h2 class="user-name">James Wilson</h2>
+        <p class="user-profession">Professione</p>
+        <button class="message-button">Message</button>
+      </div>
+      <!-- Altre card... -->
+      <div class="card-item">
+        <img
+          src="https://picsum.photos/200"
+          alt="carimage"
+          class="user-image"
+        />
+        <h2 class="user-name">James Wilson</h2>
+        <p class="user-profession">Professione</p>
+        <button class="message-button">Message</button>
+      </div>
+      <!-- Altre card... -->
+      <div class="card-item">
+        <img
+          src="https://picsum.photos/200"
+          alt="carimage"
+          class="user-image"
+        />
+        <h2 class="user-name">James Wilson</h2>
+        <p class="user-profession">Professione</p>
+        <button class="message-button">Message</button>
+      </div>
+      <!-- Altre card... -->
+      <div class="card-item">
+        <img
+          src="https://picsum.photos/200"
+          alt="carimage"
+          class="user-image"
+        />
+        <h2 class="user-name">James Wilson</h2>
+        <p class="user-profession">Professione</p>
+        <button class="message-button">Message</button>
       </div>
     </div>
+    <button class="carousel-button right-0" (click)="nextSlide()">
+      &#10095;
+    </button>
   </div>
 </main>

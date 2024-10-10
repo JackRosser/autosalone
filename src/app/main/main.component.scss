@@ -1,6 +1,16 @@
+// LO SO MICHELE, QUI HO SCRITTO MOLTO CSS
+// MA L'HTML CON TAILWIND VENIVA DAVVERO MOLTO LUNGO
+// SI, SO CHE AVREI POTUTO CONDENSARLO MODIFICANDO LE CONFING DI TAILWIND
+// MA NON HO MOLTO TEMPO, INOLTRE NON VORREI CREARE CONFLITTI STRANI CON ANGULAR
+// MAGARI SUGGERISCIMI PURE COME POTREI RENDERE LE COSE PIU ORDINATE
+// QUI HO SCRITTO TUTTO A MANO IL CAROSELLO PERCHE SONO POVERO E NON POSSO PERMETTERMI QUELLI GIA PRONTI DI TAILWIND
+
 main {
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 main::before {
@@ -16,4 +26,82 @@ main::before {
   filter: grayscale(100%);
   z-index: -1;
   opacity: 0.5;
+}
+
+.card-list .card-item {
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  padding: 35px;
+  backdrop-filter: blur(3px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-list .card-item .user-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 40px;
+  border: 3px solid white;
+  padding: 4px;
+}
+
+.card-list .card-item .user-profession {
+  font-size: 1.15rem;
+  color: #e3e3e3;
+  font-weight: 500;
+  margin: 14px 0 40px;
+}
+
+.card-list .card-item .message-button {
+  font-size: 1.25rem;
+  padding: 10px 35px;
+  color: #030728;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  background: white;
+  border: 1px solid transparent;
+}
+
+.card-list .card-item .message-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid white;
+  color: white;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-list {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-button.left-0 {
+  left: 10px;
+}
+
+.carousel-button.right-0 {
+  right: 10px;
 }
