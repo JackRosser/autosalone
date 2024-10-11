@@ -1,0 +1,19 @@
+<main class="items-start overflow-hidden h-screen">
+  <section
+    class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 overflow-y-auto h-full p-5"
+  >
+    <div
+      *ngFor="let price of carPrices"
+      class="border flex flex-col p-5 justify-center backdrop-blur-sm shadow-md cursor-pointer hover:scale-105 hover:backdrop-blur-none hover:bg-black hover:bg-opacity-20 transition-transform"
+      [ngClass]="{ 'bg-red-500': !price.available }"
+    >
+      <div class="uppercase">
+        <span class="me-2 bg-black text-white p-1">{{ price.brand }}</span
+        ><span class="bg-white p-1">{{ price.model }}</span>
+      </div>
+      <div class="font-medium mt-4 outline-dotted p-1 text-center bg-sky-700">
+        <span class="text-white">{{ price.price | number : "1.0-0" }} €</span>
+      </div>
+    </div>
+  </section>
+</main>

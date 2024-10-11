@@ -22,6 +22,7 @@ import { JaguarComponent } from './pages/jaguar/jaguar.component';
 import { FordComponent } from './pages/ford/ford.component';
 import { JeepComponent } from './pages/jeep/jeep.component';
 import { OpelComponent } from './pages/opel/opel.component';
+import { PricingComponent } from './pages/pricing/pricing.component';
 
 
 const routes: Route[] = [
@@ -84,6 +85,10 @@ const routes: Route[] = [
   {
     path: "opel",
     component: OpelComponent
+  },
+  {
+    path: "pricing",
+    component: PricingComponent
   }
 ]
 
@@ -108,6 +113,7 @@ const routes: Route[] = [
     FordComponent,
     JeepComponent,
     OpelComponent,
+    PricingComponent,
 
   ],
   imports: [

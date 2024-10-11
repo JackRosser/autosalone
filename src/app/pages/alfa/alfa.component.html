@@ -6,9 +6,7 @@
       *ngFor="let car of carsContainer"
       class="border relative bg-slate-800 bg-opacity-50 md:h-[600px] md:w-[500px]"
     >
-      <div id="disponibilita" *ngIf="!car.available" [class]="nonDisponibile">
-        NON DISPONIBILE
-      </div>
+      <div id="disponibilita" [class]="nonDisponibile">NON DISPONIBILE</div>
       <!-- se ti chiedi il perchè di queste altezze strane, alcune immagini avevano un banner sotto che faceva schifo, quindi ho croppato -->
       <div class="h-[240px] md:h-[330px] overflow-hidden flex items-start">
         <img [src]="car.modelImage" [alt]="car.model" class="w-full" />

@@ -1,3 +1,57 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+/>
+<!-- ho provato a installare le icone di bootstrap senza la cdn ma non è andato a buon fine -->
+<!-- il comando utilizzato è npm i bootstrap-icons -->
 <main>
-  <p>contacts works!</p>
+  <section class="flex flex-col gap-5">
+    <div>
+      <h3 class="text-white font-bold bg-black py-1 px-2">eMail</h3>
+      <p
+        class="p-5 max-w-[400px] md:max-w-[500px] bg-slate-600 bg-opacity-70 text-white italic"
+      >
+        {{ "jacksupercars@gmail.com" }}
+      </p>
+    </div>
+    <div>
+      <h3 class="text-white font-bold bg-black py-1 px-2">Phone</h3>
+      <p
+        class="p-5 max-w-[400px] md:max-w-[500px] bg-slate-600 bg-opacity-70 text-white"
+      >
+        348 5577888
+      </p>
+    </div>
+    <div>
+      <h3 class="text-white font-bold bg-black py-1 px-2">Socials</h3>
+      <div
+        class="p-5 max-w-[400px] md:max-w-[500px] bg-slate-600 bg-opacity-70 text-white flex gap-5"
+      >
+        <a
+          href="https://www.facebook.com/"
+          target="_blank"
+          class="hover:scale-150 transition-transform"
+          ><i class="bi bi-facebook"></i
+        ></a>
+        <a
+          href="https://www.instagram.com/"
+          target="_blank"
+          class="hover:scale-150 transition-transform"
+          ><i class="bi bi-instagram"></i
+        ></a>
+        <a
+          href="https://www.tiktok.com/"
+          target="_blank"
+          class="hover:scale-150 transition-transform"
+          ><i class="bi bi-tiktok"></i
+        ></a>
+        <a
+          href="https://www.twitter.com/"
+          target="_blank"
+          class="hover:scale-150 transition-transform"
+          ><i class="bi bi-twitter"></i
+        ></a>
+      </div>
+    </div>
+  </section>
 </main>
