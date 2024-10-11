@@ -1,4 +1,5 @@
 export interface iCar {
+  id: number,
   brand: string,
   brandLogo: string,
   model: string,

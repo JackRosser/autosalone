@@ -6,9 +6,18 @@
     </button>
     <div #cardList class="card-list flex gap-5 md:gap-10">
       <!-- INIzIO CARD -->
-      <div class="card-item">
-        <img src="https://picsum.photos/200" alt="carimage" class="car-image" />
-        <h2 class="car-name">James Wilson</h2>
+      <div class="card-item" *ngFor="let car of carsCatalogue">
+        <div class="imagebox">
+          <img
+            [src]="car.modelImage"
+            alt="carimage"
+            class="car-image cropped"
+          />
+        </div>
+        <h3 class="uppercase font-black text-black text-2xl">
+          {{ car.brand }}
+        </h3>
+        <h3 class="uppercase text-slate-700">{{ car.model }}</h3>
         <button class="discover-button">Details</button>
       </div>
       <!-- FINE CARD -->

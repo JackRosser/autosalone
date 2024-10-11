@@ -27,6 +27,7 @@
   margin-bottom: 40px;
   border: 3px solid white;
   padding: 4px;
+  object-position: bottom;
 }
 
 .card-list .card-item .user-profession {
@@ -105,4 +106,16 @@
   text-transform: uppercase;
   font-weight: bold;
   color: black;
+}
+
+.imagebox {
+  height: 120px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.cropped {
+  width: 100%;
+  height: auto;
+  // object-fit: cover;
 }
