@@ -63,11 +63,18 @@ ngOnInit(): void {
     })
     .then((data: iCar[]) => {
 
-      while (this.carsCatalogue.length < 10) {
-        let randomCar = Math.floor(Math.random() * data.length)
-        this.carsCatalogue.push(data[randomCar])
+      if (data.length >= 10) {
+        while (this.carsCatalogue.length < 10) {
+          let randomCarIndex = Math.floor(Math.random() * data.length);
+          let randomCar = data[randomCarIndex];
+
+           if (!this.carsCatalogue.some(car => car.model === randomCar.model && car.brand === randomCar.brand)) {
+            this.carsCatalogue.push(randomCar);
+          }
+        }
       }
       console.log(this.carsCatalogue);
+
 
 
     })
