@@ -5,7 +5,9 @@
     <div
       *ngFor="let price of carPrices"
       class="border flex flex-col p-5 justify-center backdrop-blur-sm shadow-md cursor-pointer hover:scale-105 hover:backdrop-blur-none hover:bg-black hover:bg-opacity-20 transition-transform"
-      [ngClass]="{ 'bg-red-500': !price.available }"
+      [ngClass]="{
+        'bg-red-500 hover:bg-red-800 hover:bg-opacity-100': !price.available
+      }"
     >
       <div class="uppercase">
         <span class="me-2 bg-black text-white p-1">{{ price.brand }}</span
