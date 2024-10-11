@@ -1,3 +1,7 @@
+// QUI fuNziONAVA TUTTO FINO A QUANDO NON HO GeNERATO LE CARDS DINAMICAMENTE
+// IL COMANDO DEL CAROSELLO PARTIVA PRIMA RISPETTO ALLA FETCH, QUINDI LE IMMAGINI NON SI MUOVEVANO
+// SONO ANDATO A CERCARMI ALCUNI METODI PER RISOLVERE E HO RISOLTO, ALCUNI NON LI CONOSCEVO
+
 import { iCar } from './../models/icars';
 import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2, ChangeDetectorRef } from '@angular/core';
 
@@ -11,6 +15,7 @@ export class MainComponent implements AfterViewInit {
   currentIndex = 0;
   cardWidth = 0;
   carsCatalogue: iCar[] = [];
+  router: any;
 
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef) {}
 
@@ -44,7 +49,7 @@ export class MainComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    // Non facciamo nulla qui perché il carosello sarà inizializzato dopo la fetch
+    // questo è vuoto perchè il carosello parte dopo la fetch
   }
 
   initializeCarousel() {
@@ -79,4 +84,5 @@ export class MainComponent implements AfterViewInit {
   getCardsCount(): number {
     return this.cardList.nativeElement.children.length;
   }
+
 }

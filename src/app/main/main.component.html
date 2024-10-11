@@ -18,7 +18,9 @@
           {{ car.brand }}
         </h3>
         <h3 class="uppercase text-slate-700">{{ car.model }}</h3>
-        <button class="discover-button">Details</button>
+        <button class="discover-button" [routerLink]="['/details', car.id]">
+          Details
+        </button>
       </div>
       <!-- FINE CARD -->
     </div>

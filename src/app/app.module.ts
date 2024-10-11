@@ -12,6 +12,7 @@ import { AboutComponent } from './pages/footer-pages/about/about.component';
 import { PrivacyComponent } from './pages/footer-pages/privacy/privacy.component';
 import { LicensingComponent } from './pages/footer-pages/licensing/licensing.component';
 import { ContactComponent } from './pages/footer-pages/contact/contact.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 const routes: Route[] = [
   {
@@ -37,6 +38,10 @@ const routes: Route[] = [
   {
     path: "contact",
     component: ContactComponent
+  },
+  {
+    path: "details/:id",
+    component: DetailsComponent
   }
 ]
 
@@ -50,7 +55,8 @@ const routes: Route[] = [
     AboutComponent,
     PrivacyComponent,
     LicensingComponent,
-    ContactComponent
+    ContactComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
