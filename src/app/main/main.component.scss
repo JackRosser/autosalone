@@ -4,7 +4,6 @@
 // MA NON HO MOLTO TEMPO, INOLTRE NON VORREI CREARE CONFLITTI STRANI CON ANGULAR
 // MAGARI SUGGERISCIMI PURE COME POTREI RENDERE LE COSE PIU ORDINATE
 // QUI HO SCRITTO TUTTO A MANO IL CAROSELLO PERCHE SONO POVERO E NON POSSO PERMETTERMI QUELLI GIA PRONTI DI TAILWIND
-// SONO ANDATO A PRENDERE UN VECCHIO CAROSELLO CHE AVEVO SCRITTO PER UN ESERCIZIO E HO USATO QUELLO
 
 main {
   position: relative;
@@ -44,7 +43,7 @@ main::before {
   cursor: pointer;
 }
 
-.card-list .card-item .user-image {
+.card-list .card-item .car-image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -60,7 +59,7 @@ main::before {
   margin: 14px 0 40px;
 }
 
-.card-list .card-item .message-button {
+.card-list .card-item .discover-button {
   font-size: 1.25rem;
   padding: 10px 35px;
   color: #030728;
@@ -71,30 +70,34 @@ main::before {
   border: 1px solid transparent;
 }
 
-.card-list .card-item .message-button:hover {
+.card-list .card-item .discover-button:hover {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid white;
   color: white;
 }
 
 .slider-wrapper {
-  overflow: hidden; // Nasconde le card che escono fuori dal container
-  width: 100%; // Occupa tutto lo spazio disponibile
+  overflow: hidden;
+  width: 100%;
   display: flex;
-  justify-content: center; // Centra le card
+  justify-content: start;
   align-items: center;
+  height: 100%;
 }
 
 .card-list {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  width: max-content; // Imposta la larghezza in base al contenuto
+  width: max-content;
 }
 
 .card-item {
-  flex: 0 0 auto; // Impedisce che le card si comprimano o si espandano
-  width: 200px; // Imposta una larghezza fissa per le card
-  margin-right: 10px; // Aggiunge spazio tra le card
+  transition: transform 500ms, filter 500ms;
+}
+
+.card-item:hover {
+  transform: translateY(-1rem);
+  filter: drop-shadow(0 0 0.75rem blue);
 }
 
 .carousel-button {
@@ -115,4 +118,14 @@ main::before {
 
 .carousel-button.right-0 {
   right: 10px;
+}
+
+.discover-button {
+  margin-top: 1rem;
+}
+
+.car-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: black;
 }
