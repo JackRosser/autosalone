@@ -23,6 +23,7 @@ import { FordComponent } from './pages/ford/ford.component';
 import { JeepComponent } from './pages/jeep/jeep.component';
 import { OpelComponent } from './pages/opel/opel.component';
 
+
 const routes: Route[] = [
   {
     path: "",
@@ -106,7 +107,8 @@ const routes: Route[] = [
     JaguarComponent,
     FordComponent,
     JeepComponent,
-    OpelComponent
+    OpelComponent,
+
   ],
   imports: [
     BrowserModule,

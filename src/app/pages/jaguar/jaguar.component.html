@@ -1,1 +1,48 @@
-<p>jaguar works!</p>
+<main class="items-start overflow-hidden h-screen">
+  <section
+    class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 overflow-y-auto h-full p-5"
+  >
+    <div
+      *ngFor="let car of carsContainer"
+      class="border relative bg-slate-800 bg-opacity-50 md:h-[600px] md:w-[500px]"
+    >
+      <div id="disponibilita" *ngIf="!car.available" [class]="nonDisponibile">
+        NON DISPONIBILE
+      </div>
+      <!-- se ti chiedi il perchè di queste altezze strane, alcune immagini avevano un banner sotto che faceva schifo, quindi ho croppato -->
+      <div class="h-[240px] md:h-[330px] overflow-hidden flex items-start">
+        <img [src]="car.modelImage" [alt]="car.model" class="w-full" />
+      </div>
+      <div class="flex justify-center">
+        <img
+          [src]="car.brandLogo"
+          [alt]="car.brand"
+          class="absolute -top-2 -left-2 w-1/4 bg-white p-3 border shadow-md"
+        />
+        <div class="p-5 flex flex-col justify-center content-center">
+          <div class="flex items-center gap-2 mb-10">
+            <h1 class="text-white font-bold text-[3rem]">
+              {{ car.brand }}
+            </h1>
+            <h2
+              class="uppercase bg-black text-white p-2 md:text-[2rem] relative"
+            >
+              {{ car.model }}
+            </h2>
+          </div>
+          <h3
+            class="font-black text-black text-[2rem] drop-shadow-white drop-shadow-2xl border text-center backdrop-blur shadow-md"
+          >
+            <span class="me-2 font-medium text-xl text-white">&euro;</span
+            >{{ car.price | number : "1.0-0" }}
+          </h3>
+          <h3
+            class="absolute top-5 right-5 font-medium bg-slate-500 p-2 rounded-full text-white"
+          >
+            {{ car.year }}
+          </h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

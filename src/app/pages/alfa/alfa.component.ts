@@ -9,7 +9,6 @@ import { Component } from '@angular/core';
 export class AlfaComponent {
 
   carsContainer!: iCar[]
-  esaurito: boolean = false
   nonDisponibile: string = "bg-red-700 p-1 absolute w-full z-20 top-[50%] rotate-45 text-center text-white shadow-md"
 
 
