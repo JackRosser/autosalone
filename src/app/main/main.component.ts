@@ -1,4 +1,6 @@
+import { iCar } from './../models/icars';
 import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+
 
 // 🔴 ho un piccolo bug in versione mobile, le cards vengono tagliate in fase di scorrimento e non riesco a risolvere
 
@@ -8,6 +10,7 @@ import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@ang
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements AfterViewInit {
+  // CODICE RELATIVO AL CAROSELLO
   @ViewChild('cardList') cardList!: ElementRef<HTMLDivElement>;
   currentIndex = 0;
   cardWidth = 0;
@@ -45,5 +48,32 @@ export class MainComponent implements AfterViewInit {
 
   getCardsCount(): number {
     return this.cardList.nativeElement.children.length;
+  }
+  // CODICE RELATIVO ALLA GENERAZIONE DELLE CARDS
+
+carsCatalogue: iCar[] = []
+
+ngOnInit(): void {
+  fetch("db 2.json")
+    .then(res => {
+      if (!res.ok) {
+        throw new Error("Errore nella chiamata");
+      }
+      return res.json();
+    })
+    .then((data: iCar[]) => {
+
+      while (this.carsCatalogue.length < 10) {
+        let randomCar = Math.floor(Math.random() * data.length)
+        this.carsCatalogue.push(data[randomCar])
+      }
+      console.log(this.carsCatalogue);
+
+
+    })
+    .catch(err => {
+      console.log("Errore: " + err);
+
+})
   }
 }
