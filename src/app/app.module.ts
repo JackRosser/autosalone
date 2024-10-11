@@ -8,6 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { Route, RouterModule } from '@angular/router';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { AboutComponent } from './pages/footer-pages/about/about.component';
+import { PrivacyComponent } from './pages/footer-pages/privacy/privacy.component';
+import { LicensingComponent } from './pages/footer-pages/licensing/licensing.component';
+import { ContactComponent } from './pages/footer-pages/contact/contact.component';
 
 const routes: Route[] = [
   {
@@ -17,6 +21,22 @@ const routes: Route[] = [
   {
     path: "contacts",
     component: ContactsComponent
+  },
+  {
+    path: "about",
+    component: AboutComponent
+  },
+  {
+    path: "privacy",
+    component: PrivacyComponent
+  },
+  {
+    path: "licensing",
+    component: LicensingComponent
+  },
+  {
+    path: "contact",
+    component: ContactComponent
   }
 ]
 
@@ -26,7 +46,11 @@ const routes: Route[] = [
     NavbarComponent,
     FooterComponent,
     MainComponent,
-    ContactsComponent
+    ContactsComponent,
+    AboutComponent,
+    PrivacyComponent,
+    LicensingComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
