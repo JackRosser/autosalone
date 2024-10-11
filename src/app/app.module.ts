@@ -7,11 +7,16 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { MainComponent } from './main/main.component';
 import { Route, RouterModule } from '@angular/router';
+import { ContactsComponent } from './pages/contacts/contacts.component';
 
 const routes: Route[] = [
   {
     path: "",
     component: MainComponent
+  },
+  {
+    path: "contacts",
+    component: ContactsComponent
   }
 ]
 
@@ -20,7 +25,8 @@ const routes: Route[] = [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MainComponent
+    MainComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

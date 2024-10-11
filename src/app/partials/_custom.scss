@@ -1,0 +1,43 @@
+// FONT ISTITUZIONALE
+/* .montserrat-<uniquifier> {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+main {
+  position: relative;
+  overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 1rem;
+  min-height: calc(100vh - 170px);
+  max-height: calc(100vh - 170px);
+}
+
+main::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://digitalsynopsis.com/wp-content/uploads/2014/06/supercar-wallpapers-bugatti-4.jpg");
+  background-size: cover;
+  background-position: center;
+  // filter: grayscale(100%);
+  //🔴 MICHELE dimmi tu se è più figo in bianco e nero
+  z-index: -1;
+  opacity: 0.5;
+}

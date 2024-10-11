@@ -1,5 +1,7 @@
 import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 
+// 🔴 ho un piccolo bug in versione mobile, le cards vengono tagliate in fase di scorrimento e non riesco a risolvere
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
