@@ -55,6 +55,34 @@ const routes: Route[] = [
   {
     path: "fiat",
     component: FiatComponent
+  },
+  {
+    path: "audi",
+    component: AudiComponent
+  },
+  {
+    path: "alfa",
+    component: AlfaComponent
+  },
+  {
+    path: "bmw",
+    component: BmwComponent
+  },
+  {
+    path: "jaguar",
+    component: JaguarComponent
+  },
+  {
+    path: "ford",
+    component: FordComponent
+  },
+  {
+    path: "jeep",
+    component: JeepComponent
+  },
+  {
+    path: "opel",
+    component: OpelComponent
   }
 ]
 
