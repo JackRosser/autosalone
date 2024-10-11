@@ -1,8 +1,5 @@
 import { iCar } from './../models/icars';
-import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-
-
-// 🔴 ho un piccolo bug in versione mobile, le cards vengono tagliate in fase di scorrimento e non riesco a risolvere
+import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2, ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-main',
@@ -10,14 +7,47 @@ import { Component, AfterViewInit, ViewChild, ElementRef, Renderer2 } from '@ang
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements AfterViewInit {
-  // CODICE RELATIVO AL CAROSELLO
   @ViewChild('cardList') cardList!: ElementRef<HTMLDivElement>;
   currentIndex = 0;
   cardWidth = 0;
+  carsCatalogue: iCar[] = [];
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef) {}
+
+  async ngOnInit(): Promise<void> {
+    try {
+      const response = await fetch("db 2.json");
+      if (!response.ok) {
+        throw new Error("Errore nella chiamata");
+      }
+      const data: iCar[] = await response.json();
+
+      if (data.length >= 10) {
+        while (this.carsCatalogue.length < 10) {
+          const randomCarIndex = Math.floor(Math.random() * data.length);
+          const randomCar = data[randomCarIndex];
+
+          if (!this.carsCatalogue.some(car => car.model === randomCar.model && car.brand === randomCar.brand)) {
+            this.carsCatalogue.push(randomCar);
+          }
+        }
+      }
+
+      console.log(this.carsCatalogue);
+
+      // Forza il rilevamento delle modifiche dopo il caricamento dei dati
+      this.cdr.detectChanges();
+      this.initializeCarousel();
+    } catch (err) {
+      console.log("Errore: " + err);
+    }
+  }
 
   ngAfterViewInit() {
+    // Non facciamo nulla qui perché il carosello sarà inizializzato dopo la fetch
+  }
+
+  initializeCarousel() {
     this.calculateCardWidth();
     this.updateSlide();
   }
@@ -48,39 +78,5 @@ export class MainComponent implements AfterViewInit {
 
   getCardsCount(): number {
     return this.cardList.nativeElement.children.length;
-  }
-  // CODICE RELATIVO ALLA GENERAZIONE DELLE CARDS
-
-carsCatalogue: iCar[] = []
-
-ngOnInit(): void {
-  fetch("db 2.json")
-    .then(res => {
-      if (!res.ok) {
-        throw new Error("Errore nella chiamata");
-      }
-      return res.json();
-    })
-    .then((data: iCar[]) => {
-
-      if (data.length >= 10) {
-        while (this.carsCatalogue.length < 10) {
-          let randomCarIndex = Math.floor(Math.random() * data.length);
-          let randomCar = data[randomCarIndex];
-
-           if (!this.carsCatalogue.some(car => car.model === randomCar.model && car.brand === randomCar.brand)) {
-            this.carsCatalogue.push(randomCar);
-          }
-        }
-      }
-      console.log(this.carsCatalogue);
-
-
-
-    })
-    .catch(err => {
-      console.log("Errore: " + err);
-
-})
   }
 }
