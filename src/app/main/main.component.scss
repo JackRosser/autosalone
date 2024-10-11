@@ -11,6 +11,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-inline: 1rem;
 }
 
 main::before {
@@ -24,6 +25,7 @@ main::before {
   background-size: cover;
   background-position: center;
   // filter: grayscale(100%);
+  //🔴 MICHELE dimmi tu se è più figo in bianco e nero
   z-index: -1;
   opacity: 0.5;
 }

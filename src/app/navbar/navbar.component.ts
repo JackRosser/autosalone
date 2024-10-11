@@ -17,7 +17,7 @@ ariaHidden: boolean = true
 
 expandNavbar(): void {
 this.expanded = !this.expanded
-console.log("expanded = ", this.expanded);
+
 if(this.dropdown === "w-full md:block md:w-auto hidden") {
   this.dropdown = "w-full md:block md:w-auto"
 } else {
@@ -33,7 +33,6 @@ if (this.classDropMenuHidden === "z-10 font-normal bg-white divide-y divide-gray
 }
 
 this.ariaHidden = !this.ariaHidden
-console.log(this.classDropMenuHidden, this.ariaHidden);
 
 
 }

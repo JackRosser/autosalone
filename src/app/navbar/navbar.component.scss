@@ -9,3 +9,13 @@
   width: 200px;
   z-index: 1000;
 }
+
+#logo {
+  transform: scale(1.4);
+}
+
+#logo:hover {
+  transform: scale(1.5);
+  filter: brightness(1.75);
+  transition: transform 500ms, filter 500ms;
+}
