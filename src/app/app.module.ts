@@ -13,6 +13,15 @@ import { PrivacyComponent } from './pages/footer-pages/privacy/privacy.component
 import { LicensingComponent } from './pages/footer-pages/licensing/licensing.component';
 import { ContactComponent } from './pages/footer-pages/contact/contact.component';
 import { DetailsComponent } from './pages/details/details.component';
+import { FiatComponent } from './navbar/navbar-pages/fiat/fiat.component';
+import { DropdownElementsComponent } from './navbar/dropdown-elements/dropdown-elements.component';
+import { AudiComponent } from './pages/audi/audi.component';
+import { AlfaComponent } from './pages/alfa/alfa.component';
+import { BmwComponent } from './pages/bmw/bmw.component';
+import { JaguarComponent } from './pages/jaguar/jaguar.component';
+import { FordComponent } from './pages/ford/ford.component';
+import { JeepComponent } from './pages/jeep/jeep.component';
+import { OpelComponent } from './pages/opel/opel.component';
 
 const routes: Route[] = [
   {
@@ -42,6 +51,10 @@ const routes: Route[] = [
   {
     path: "details/:id",
     component: DetailsComponent
+  },
+  {
+    path: "fiat",
+    component: FiatComponent
   }
 ]
 
@@ -56,7 +69,16 @@ const routes: Route[] = [
     PrivacyComponent,
     LicensingComponent,
     ContactComponent,
-    DetailsComponent
+    DetailsComponent,
+    FiatComponent,
+    DropdownElementsComponent,
+    AudiComponent,
+    AlfaComponent,
+    BmwComponent,
+    JaguarComponent,
+    FordComponent,
+    JeepComponent,
+    OpelComponent
   ],
   imports: [
     BrowserModule,
